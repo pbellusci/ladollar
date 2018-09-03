@@ -16,7 +16,7 @@ class Cotizar
         $date = date('d-m-Y H:i:s');
         if($this->_compra > 0) {
             $profit = $this->_calculate($compra);
-            print "Variacion: $profit || Compra: $compra || Venta $venta || $date";
+            print "Variacion: $profit || Compra: $compra || Venta $venta || $date".PHP_EOL;
             $log = "$compra||$venta||$date||$profit";
         } else {
             print "Compra: $compra || Venta $venta || $date";
