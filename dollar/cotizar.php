@@ -12,11 +12,26 @@ class Cotizar
 
     public function start()
     {
+        $color = new Colors();
+
         list($compra, $venta) = $this->_readData();
         $date = date('d-m-Y H:i:s');
         if($this->_compra > 0) {
             $profit = $this->_calculate($compra);
-            print "Variacion: $profit || Compra: $compra || Venta $venta || $date".PHP_EOL;
+
+            $str = "Variacion: $profit || Compra: $compra || Venta $venta || $date";
+
+            if($profit > 0)
+            {
+                $text = $color->getColoredString($str, 'white', 'green');
+            } elseif($profit < 0 )
+            {
+                $text = $color->getColoredString($str, 'white', 'red');
+            } else {
+                $text = $str;
+            }
+
+            print $text.PHP_EOL;
             $log = "$compra||$venta||$date||$profit";
         } else {
             print "Compra: $compra || Venta $venta || $date";
