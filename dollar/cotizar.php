@@ -34,7 +34,7 @@ class Cotizar
             print $text.PHP_EOL;
             $log = "$compra||$venta||$date||$profit";
         } else {
-            print "Compra: $compra || Venta $venta || $date";
+            print "Compra: $compra || Venta $venta || $date".PHP_EOL;
             $log = "$compra||$venta||$date";
         }
 
